@@ -1,7 +1,11 @@
 import classes from "./Cart.module.scss";
 import Modal from "../UI_General/Modal";
+// ⇨ cart-modal-context pe buton
+import CartModalContext from "../../auth-context/cartModal-context";
+import { useContext } from "react";
 
 const Cart = (props) => {
+  const cartModalCtx = useContext(CartModalContext);
   //voi avea o lista cu produse -> va fi pe o stare pt ca va trebui sa declanseze o re-evaluare a componentelor
   const cartItems = [
     {
@@ -20,7 +24,10 @@ const Cart = (props) => {
         <span>$299</span>
       </div>
       <div className={classes.actions}>
-        <button className={classes["button__alt"]} onClick={props.onHideCart}>
+        <button
+          className={classes["button__alt"]}
+          onClick={cartModalCtx.hideCart}
+        >
           Close
         </button>
         <button className={classes.button}>Order</button>

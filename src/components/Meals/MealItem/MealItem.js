@@ -1,4 +1,5 @@
 import MealItemForm from "./MealItemForm";
+import classes from "./MealItem.module.scss";
 
 const MealItem = (props) => {
   // destructurez proprietatile pt a-mi fi mai usor
@@ -8,12 +9,12 @@ const MealItem = (props) => {
   const priceF = `$${price.toFixed(2)}`;
 
   return (
-    <li>
+    <li className={classes.meal}>
       <div>
-        <h2>{name}</h2>
-        <p>{description}</p>
+        <h3>{name}</h3>
+        <p className={classes["meal-description"]}>{description}</p>
         {/* <span>${props.meal.price.toFixed(2)}</span> */}
-        <span>{priceF}</span>
+        <p className={classes["meal-price"]}>{priceF}</p>
       </div>
       <div>
         <MealItemForm id={id} />

@@ -3,8 +3,8 @@ import classes from "./MealsDescription.module.scss";
 
 const MealsDescription = (props) => {
   return (
-    <section className={classes.description}>
-      <Card>
+    <section>
+      <Card className={classes.description}>
         <h2>Delicious Food, Delivered To You</h2>
         <p>
           Choose your favorite meal from our broad selection of available meals

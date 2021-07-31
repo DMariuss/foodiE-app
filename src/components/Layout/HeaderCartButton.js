@@ -4,11 +4,11 @@ import classes from "./HeaderCartButton.module.scss";
 const CartButton = (props) => {
   return (
     <button className={classes.button} onClick={props.onClick}>
-      <span>
+      <span className={classes["cart-icon"]}>
         <CartIcon />
       </span>
-      <span>Meals Cart</span>
-      <span>4</span>
+      <span className={classes["cart-text"]}>Meals Cart</span>
+      <span className={classes["cart-badge"]}>4</span>
     </button>
   );
 };

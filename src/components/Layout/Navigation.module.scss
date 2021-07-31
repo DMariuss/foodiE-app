@@ -1,0 +1,38 @@
+@import "../UI_General//config";
+
+.navbar {
+  &__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    @include media-md {
+      flex-direction: row;
+      align-items: center;
+      flex: 1;
+      max-width: 37rem;
+      margin-left: auto;
+
+      li {
+        flex: 1;
+        max-width: 9rem;
+      }
+    }
+  }
+
+  &__link {
+    // background-color: set_color(navbar_links);
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: set_color(link);
+    font-weight: 700;
+    padding: 0.5rem;
+    transition: all 0.1s ease-in-out;
+
+    &:hover,
+    &:focus {
+      background-color: set_color(header_hover_bg);
+    }
+  }
+}

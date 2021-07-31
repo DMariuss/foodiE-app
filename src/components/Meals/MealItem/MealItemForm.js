@@ -1,5 +1,5 @@
 import Input from "../../UI_General/Input";
-import classes from "./MealItemForm.module.scss";
+import "./MealItemForm.scss";
 
 const MealForm = (props) => {
   const addHandler = (event) => {
@@ -8,13 +8,16 @@ const MealForm = (props) => {
   };
 
   return (
-    <form onSubmit={addHandler}>
+    <form onSubmit={addHandler} className="meal-form">
       <Input
         label="Amount"
         inputs={{
           id: "amount_" + props.id,
           type: "number",
-          //   onCLick: "something",
+          defaultValue: "1",
+          min: "1",
+          max: "5",
+          step: "1",
         }}
       />
       <button>+ Add</button>

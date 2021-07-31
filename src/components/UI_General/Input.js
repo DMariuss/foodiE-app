@@ -1,10 +1,9 @@
-import classes from "./Input.module.scss";
-
 const Input = (props) => {
   // const options = ['cats', 'dogs', 'hamsters', 'snakes']; // 🢣 example of array with options
 
   return (
-    <div className={classes.input}>
+    //   .input-action stylings are in MealItemForm.scss
+    <div className="input-action">
       <label htmlFor={props.inputs.id}>{props.label}</label>
       {props.inputType === "input" && <input {...props.inputs} />}
       {props.inputType === "select" && (

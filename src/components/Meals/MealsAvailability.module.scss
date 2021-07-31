@@ -1,0 +1,8 @@
+@import "../UI_General/config";
+
+.meals {
+  background-color: set_color(meal_items_bg);
+  width: Min(100%, 50rem);
+  margin: 2rem auto;
+  animation: meals-appear 1s ease-out forwards;
+}

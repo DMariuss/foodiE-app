@@ -1,16 +1,76 @@
-$bg_color_green: #28a745;
-$color_1: #036556;
+$colors: (
+  green_d: #036518,
+  green_l: #28a745,
+  navbar_bg: rgba(128, 128, 128, 0.438),
+  navbar_links: rgba(54, 202, 54, 0.425),
+  logo_bg: rgba(0, 0, 0, 0.5),
+  logo_txt: rgb(255, 255, 255),
+  logo_deco: #28a745,
+  link: white,
+  header_hover_bg: #0bdf1b4f,
+  headerCart_btn_txt: rgb(255, 255, 255),
+  headerCart_badge_bg: #28a745,
+  headerCart_badge_txt: white,
+  meal_description_bg: rgba(0, 0, 0, 0.479),
+  meal_description_txt: rgb(255, 255, 255),
+  meal_description_h2_txt: #28a745,
+  meal_items_bg: rgba(255, 255, 255, 0.829),
+  meal_item_border_color: #28a745,
+  //   meal_price_txt: #036518,
+  meal_price_txt: #f70e19,
+  meal_add_btn_bg: #036518,
+  meal_add_btn_txt: white,
+  meal_hover_add_btn_bg: #28a745,
+);
+
+@function set_color($key) {
+  @return map-get($colors, $key);
+}
 
 @mixin media-md {
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 700px) {
     @content;
   }
+}
+
+@mixin pseudo-effect {
+  content: "";
+  position: absolute;
 }
 
 @keyframes modal-slide {
   0% {
     opacity: 0;
-    transform: translateY(-3.5rem);
+    transform: translateX(-50%) translateY(-3.5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes bump {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(0.9);
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes meals-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(4rem);
   }
   100% {
     opacity: 1;

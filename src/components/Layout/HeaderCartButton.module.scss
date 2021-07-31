@@ -1,0 +1,49 @@
+@import "../UI_General/config";
+
+.button {
+  max-width: 260px;
+  font: inherit;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: transparent;
+  color: set_color(headerCart_btn_txt);
+  box-shadow: inset 0px 0px 27px 10pt black;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  margin: 0.5rem 1rem 0 auto;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+
+  @include media-md {
+    margin: 0;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: set_color(header_hover_bg);
+  }
+}
+
+.cart {
+  &-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 1rem;
+  }
+  &-text {
+    margin-right: 1rem;
+  }
+  &-badge {
+    background-color: set_color(headerCart_badge_bg);
+    padding: 0.3rem 1rem;
+    border-radius: 0.5rem;
+    margin-left: 1.5rem;
+  }
+}
+
+.bump {
+  animation: bump 0.3s ease-out;
+}

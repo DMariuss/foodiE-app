@@ -1,4 +1,4 @@
-import TextMeals from "./MealsDescription"; // 🢣 meals summary
+import MealsDescription from "./MealsDescription"; // 🢣 meals summary
 import AllMeals from "./MealsAvailability"; // 🢣 list with meals to pick from
 
 // 🢣 central component for main app: combines all meal related components
@@ -6,7 +6,7 @@ import AllMeals from "./MealsAvailability"; // 🢣 list with meals to pick from
 const Meals = (props) => {
   return (
     <>
-      <TextMeals />
+      <MealsDescription />
       <AllMeals />
     </>
   );

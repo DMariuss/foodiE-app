@@ -1,0 +1,43 @@
+@import "../../UI_General/config";
+
+.meal-form {
+  text-align: right;
+
+  .input-action {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    label {
+      font-weight: bold;
+      margin-right: 1rem;
+    }
+    input {
+      width: 2.7rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      padding: 0.15rem;
+      padding-left: 0.5rem;
+    }
+  }
+
+  button {
+    background-color: set_color(meal_add_btn_bg);
+    color: set_color(meal_add_btn_txt);
+    border: 1px solid set_color(meal_add_btn_bg);
+    font: inherit;
+    font-weight: bold;
+    width: 100%;
+    outline: none;
+    padding: 0.2rem 2rem;
+    margin: 0.6rem 0;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+
+    &:hover,
+    &:focus {
+      background-color: set_color(meal_hover_add_btn_bg);
+    }
+  }
+}

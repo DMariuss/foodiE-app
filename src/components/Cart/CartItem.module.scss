@@ -1,0 +1,72 @@
+@import "../UI_General/config";
+
+.cart-item {
+  display: flex;
+  border-bottom: 1.5px solid set_color(meal_item_border_color);
+  margin-top: 0.5rem;
+  &:first-of-type {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: Clamp(1.1rem, 1.8vw, 1.5rem);
+  }
+
+  button {
+    width: 3rem;
+    margin: 0.3rem;
+    font: inherit;
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-align: center;
+    color: set_color(cart_add_remove_btn_txt);
+    background-color: set_color(cart_add_remove_btn_bg);
+    border: 1.5px solid set_color(cart_add_remove_btn_txt);
+    border-radius: 0.2rem;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+
+    &:hover,
+    &:focus {
+      background-color: set_color(cart_close_btn_hover_bg);
+      color: set_color(cart_add_remove_btn_bg);
+    }
+  }
+}
+
+.price {
+  @include prices-font;
+}
+
+.amount {
+  padding: 0.2rem 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  color: #363636;
+  font-weight: bold;
+}
+
+.summary {
+  flex: 1;
+  width: 9rem;
+  @supports (width: Clamp(8rem, 15vw, 12rem)) {
+    width: Clamp(8rem, 15vw, 12rem);
+  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.4rem 0;
+}
+
+.actions {
+  flex: 1.5;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+
+  @include media-sm {
+    flex-direction: row;
+    margin-bottom: 0.3rem;
+  }
+}

@@ -1,6 +1,7 @@
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
 import Cart from "./components/Cart/Cart";
+import { AuthContextProvider } from "./auth-context/auth-context";
 
 import { useState } from "react";
 
@@ -14,14 +15,14 @@ function App() {
   const hideCartHandler = () => setCartIsShown(false);
 
   return (
-    <>
+    <AuthContextProvider>
       {cartIsShown && <Cart onHideCart={hideCartHandler} />}{" "}
       {/* o pot pune oriunde aici ⇨ React.createPortal */}
       <Header onShowCart={showCartHandler} />
       <main>
         <Meals />
       </main>
-    </>
+    </AuthContextProvider>
   );
 }
 

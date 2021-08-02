@@ -1,5 +1,6 @@
 import classes from "./Cart.module.scss";
 import Modal from "../UI_General/Modal";
+import CartItem from "./CartItem";
 
 const Cart = (props) => {
   //voi avea o lista cu produse -> va fi pe o stare pt ca va trebui sa declanseze o re-evaluare a componentelor
@@ -10,7 +11,13 @@ const Cart = (props) => {
       description: "A good big chunk!",
       price: 20.99,
     },
-  ].map((item) => <li key={item.id}>{item.name}</li>);
+    {
+      id: "m1",
+      name: "Muffasa",
+      description: "Grilled as is.",
+      price: 29.19,
+    },
+  ].map((item) => <CartItem key={item.id} item={item} />);
 
   return (
     <Modal onClick={props.onHideCart}>

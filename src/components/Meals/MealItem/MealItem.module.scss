@@ -19,10 +19,7 @@
     font-style: italic;
   }
   &-price {
-    margin-top: 0.3rem;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 900;
-    font-size: Clamp(1.1rem, 1.6vw, 1.3rem);
-    color: set_color(meal_price_txt);
+    margin: 0.3rem 0;
+    @include prices-font;
   }
 }

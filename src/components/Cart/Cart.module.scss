@@ -1,0 +1,57 @@
+@import "../UI_General/config";
+
+.cart-items {
+  // overflow: auto;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: Clamp(1.1rem, 1.6vw, 1.3rem);
+  font-weight: bold;
+  margin: 0.5rem 0;
+
+  span:last-of-type {
+    @include prices-font;
+    color: black;
+  }
+}
+
+.actions {
+  text-align: right;
+
+  button {
+    font: inherit;
+    font-weight: bold;
+    outline: none;
+    padding: 0.2rem 1.2rem;
+    border-radius: 5rem;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+  }
+
+  .button {
+    background-color: set_color(cart_order_btn_bg);
+    color: set_color(cart_order_btn_txt);
+    border: 2px solid set_color(cart_order_btn_bg);
+
+    &:hover,
+    &:focus {
+      background-color: set_color(cart_order_btn_hover_bg);
+    }
+
+    &__alt {
+      background-color: set_color(cart_close_btn_bg);
+      color: set_color(cart_close_btn_txt);
+      border: 2px solid set_color(cart_order_btn_bg);
+      margin-right: 0.5rem;
+
+      &:hover,
+      &:focus {
+        background-color: set_color(cart_close_btn_hover_bg);
+        color: set_color(cart_close_btn_bg);
+      }
+    }
+  }
+}

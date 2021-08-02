@@ -21,10 +21,24 @@ $colors: (
   meal_add_btn_bg: #036518,
   meal_add_btn_txt: white,
   meal_hover_add_btn_bg: #28a745,
+  cart_order_btn_bg: #036518,
+  cart_order_btn_txt: white,
+  cart_order_btn_hover_bg: #28a745,
+  cart_close_btn_bg: white,
+  cart_close_btn_txt: #036518,
+  cart_close_btn_hover_bg: #28a745,
+  cart_add_remove_btn_bg: white,
+  cart_add_remove_btn_txt: #036518,
 );
 
 @function set_color($key) {
   @return map-get($colors, $key);
+}
+
+@mixin media-sm {
+  @media screen and (min-width: 424px) {
+    @content;
+  }
 }
 
 @mixin media-md {
@@ -36,6 +50,13 @@ $colors: (
 @mixin pseudo-effect {
   content: "";
   position: absolute;
+}
+
+@mixin prices-font {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: Clamp(1.1rem, 1.6vw, 1.3rem);
+  color: set_color(meal_price_txt);
 }
 
 @keyframes modal-slide {

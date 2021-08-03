@@ -19,7 +19,8 @@ const defaultValues = { items: [], totalAmount: 0 };
 const reducerFn = (state, action) => {
   switch (action.type) {
     case "ADD":
-      return defaultValues;
+      const updatedItems = [...state.items, action.payload];
+      return { ...state, items: updatedItems };
     case "REMOVE":
       return defaultValues;
     default:
@@ -40,6 +41,8 @@ export const AuthContextProvider = (props) => {
   const removeItemFromCartHandler = (id) => {
     dispatchCartAction({ type: "REMOVE", payload: id }); // sau: ,id: id
   };
+
+  console.log(cartState.items);
 
   //🢣 declarat separat, contine tot ceea ce voi trimite in context pt a fi accesat din alte componente
   const cartContext = {

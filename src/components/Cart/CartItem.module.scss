@@ -4,6 +4,9 @@
   display: flex;
   border-bottom: 1.5px solid set_color(meal_item_border_color);
   margin-top: 0.5rem;
+  max-height: 50vh;
+  overflow: auto;
+
   &:first-of-type {
     margin: 0;
   }

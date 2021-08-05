@@ -7,7 +7,7 @@ $colors: (
   logo_txt: rgb(255, 255, 255),
   logo_deco: #28a745,
   link: white,
-  header_hover_bg: #0bdf1b4f,
+  header_hover_bg: #0bdf1d8e,
   headerCart_btn_txt: rgb(255, 255, 255),
   headerCart_badge_bg: #28a745,
   headerCart_badge_txt: white,
@@ -96,5 +96,16 @@ $colors: (
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes hover-cart {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
   }
 }

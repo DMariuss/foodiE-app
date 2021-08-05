@@ -1,7 +1,7 @@
 @import "../UI_General/config";
 
 .button {
-  max-width: 260px;
+  max-width: 16rem;
   font: inherit;
   display: flex;
   justify-content: space-around;
@@ -16,6 +16,7 @@
   outline: none;
   cursor: pointer;
   transition: all 0.1s ease-in-out;
+  position: relative;
 
   @include media-md {
     margin: 0;
@@ -24,6 +25,8 @@
   &:hover,
   &:focus {
     background-color: set_color(header_hover_bg);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 }
 

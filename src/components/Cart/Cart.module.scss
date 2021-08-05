@@ -1,7 +1,8 @@
 @import "../UI_General/config";
 
 .cart-items {
-  // overflow: auto;
+  max-height: 40vh;
+  overflow: auto;
 }
 
 .total {

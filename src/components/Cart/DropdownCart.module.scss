@@ -1,0 +1,47 @@
+@import "../UI_General/config";
+
+.dropdown-cart {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  right: 0;
+  background-color: set_color(header_hover_bg);
+  box-shadow: inset 0px 0px 27px 10pt black !important;
+  cursor: default;
+  transform-origin: top;
+  animation: hover-cart 0.15s ease-in-out;
+
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+
+  &__item,
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__item {
+    margin-bottom: 0.3rem;
+
+    &__name {
+      text-align: left;
+    }
+    &__amount {
+      margin-right: 0.5rem;
+    }
+    &__price {
+    }
+  }
+  &__total {
+    border-top: 2px solid red;
+    margin-top: 0.9rem;
+    padding-top: 0.5rem;
+    &__total {
+    }
+    &__amount {
+    }
+    &__price {
+    }
+  }
+}

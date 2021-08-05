@@ -1,3 +1,4 @@
+// import React from "react";
 import Card from "../UI_General/Card";
 import MealItem from "../Meals/MealItem/MealItem";
 import classes from "./MealsAvailability.module.scss";
@@ -45,6 +46,8 @@ const DUMMY_MEALS = [
 // Aici am lista cu mancarurile disponibile
 const MealsAvailability = (props) => {
   // 🢣 I will split this into another component: MealItem ⇨ MealItemForm
+  console.log("In Meals Availability");
+
   const meals = (
     <ul>
       {DUMMY_MEALS.map((meal) => (

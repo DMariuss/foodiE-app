@@ -1,7 +1,7 @@
 import classes from "./DropdownCart.module.scss";
 import Card from "../UI_General/Card";
 import AuthContext from "../../auth-context/auth-context";
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 
 //implementez direct aici componenta ce-o voi folosi mai jos
 const DropdownCartItem = (props) => {
@@ -31,7 +31,15 @@ const HoverCart = (props) => {
     <DropdownCartItem key={item.id} item={item} />
   ));
 
+  //am lasat useMemo aici cu toate ca este inutil din cauza ca aceasta componenta tot timpul se monteaza/demonteaza la hover pe HeaderCartButton
+  // const totalItems = useMemo(() => {
+  //   // pana si utilizarea useMemo foloseste performante asa ca voi comenta asta, dar las sa se vada
+  //   console.log("Inside useMemo 🢣 DropdownCart"); // de aceea la demontare nu apare
+  //   return items.reduce((total, item) => (total += item.amount), 0);
+  // }, [items]);
   const totalItems = items.reduce((total, item) => (total += item.amount), 0);
+
+  console.log("In dropdown cart");
 
   return (
     <Card className={classes["dropdown-cart"]}>

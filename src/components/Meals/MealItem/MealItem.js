@@ -21,6 +21,8 @@ const MealItem = (props) => {
     });
   };
 
+  console.log("In Meal Item");
+
   return (
     <li className={classes.meal}>
       <div>

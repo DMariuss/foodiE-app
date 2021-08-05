@@ -120,8 +120,6 @@ export const AuthContextProvider = (props) => {
     dispatchCartAction({ type: "REMOVE", payload: id }); // sau: ,id: id
   };
 
-  console.log(cartState.items);
-
   //🢣 declarat separat, contine tot ceea ce voi trimite in context pt a fi accesat din alte componente
   const cartContext = {
     // valorile vor fi adaugate dinamic

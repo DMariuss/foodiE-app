@@ -1,6 +1,9 @@
 import classes from "./Navigation.module.scss";
+import React from "react";
 
-const Navigation = (props) => {
+const Navigation = () => {
+  console.log("In Navigation");
+
   return (
     <ul className={classes.navbar__links}>
       <li>
@@ -22,4 +25,4 @@ const Navigation = (props) => {
   );
 };
 
-export default Navigation;
+export default React.memo(Navigation);

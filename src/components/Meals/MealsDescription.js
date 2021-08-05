@@ -1,7 +1,9 @@
 import Card from "../UI_General/Card";
 import classes from "./MealsDescription.module.scss";
 
-const MealsDescription = (props) => {
+const MealsDescription = () => {
+  console.log("In Meals Description");
+
   return (
     <section>
       <Card className={classes.description}>

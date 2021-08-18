@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 const useHttp = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const sendRequest = async (configRequest, shapeData) => {
+  const sendRequest = useCallback(async (configRequest, shapeData) => {
     try {
       setIsLoading(true);
       setError(null);
@@ -16,14 +16,14 @@ const useHttp = () => {
       if (!response.ok) {
         throw new Error("Something went wrong!");
       }
-      const data = response.json();
+      const data = await response.json();
 
       shapeData(data);
     } catch (error) {
-      setError(error.message);
+      setError(`Sending post request error: ${error.message}`);
     }
     setIsLoading(false);
-  };
+  }, []);
 
   return { isLoading, error, sendRequest };
 };

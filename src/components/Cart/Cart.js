@@ -4,12 +4,19 @@ import CartItem from "./CartItem";
 import CartContext from "../../cart-context/cart-context";
 import Checkout from "./Checkout";
 import { useContext, useState } from "react";
+import useHttp from "../../hooks/fetch-hook";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
+  //pt afisarea formularului de completare cu datele utilizatorului
   const [isCheckout, setIsCheckout] = useState(false);
-  const [isSubmiting, setIsSubmiting] = useState(false);
   const [didSubmit, setDidSubmit] = useState(false);
+
+  const {
+    isLoading: isSubmiting,
+    error: sendError,
+    sendRequest: sendOrder,
+  } = useHttp();
 
   //pentru a adauga/inlatura un element pot aplica mai multe variante: pot implementa contextul direct in comp CartItem si realizez acolo conexiunile
   // 🢣 sau implementez logica aici pt ca deja am contextul aplicat aici si doar transmit functiile ca si atribute
@@ -26,22 +33,23 @@ const Cart = (props) => {
   };
 
   const SubmitOrderHandler = async (data) => {
-    setIsSubmiting(true);
-    await fetch(
-      "https://react-http-tests-default-rtdb.europe-west1.firebasedatabase.app/orders.json",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          user: data,
-          orderedItems: cartCtx.items,
-          totalPrice: cartCtx.totalAmount,
-        }),
-      }
-    );
-    setDidSubmit(true);
-    cartCtx.clearCart();
-    setIsSubmiting(false);
+    const configRequest = {
+      url: "https://react-http-tests-default-rtdb.europe-west1.firebasedatabase.app/orders.json",
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        user: data,
+        orderedItems: cartCtx.items,
+        totalPrice: cartCtx.totalAmount,
+      }),
+    };
+
+    //solicitarea pt a posta datele - functia este definita direct aici.
+    sendOrder(configRequest, (data) => {
+      console.log(data);
+      cartCtx.clearCart();
+      setDidSubmit(true);
+    });
   };
 
   //voi avea o lista cu produse -> va fi pe o stare pt ca va trebui sa declanseze o re-evaluare a componentelor
@@ -95,6 +103,17 @@ const Cart = (props) => {
   //cat timp se incarca sa apara acest text
   if (isSubmiting) {
     modalContent = <p className={classes.sending}>Sending order...</p>;
+  }
+  //pt o eventuala eroare
+  if (sendError) {
+    modalContent = (
+      <div className={classes.actions}>
+        <p className={classes.error}>{sendError}</p>
+        <button className={classes.button} onClick={props.onHideCart}>
+          Close
+        </button>
+      </div>
+    );
   }
   //cand s-a trimis solicitarea sa imi apara mesajul de confirmare
   if (didSubmit) {

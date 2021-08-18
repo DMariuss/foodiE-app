@@ -57,8 +57,13 @@
   }
 }
 
-.sending {
+.sending,
+.error {
   text-align: center;
   font-weight: bold;
   color: set_color(green_d);
+}
+
+.error {
+  color: red;
 }

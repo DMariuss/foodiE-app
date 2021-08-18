@@ -1,10 +1,10 @@
 import MealItemForm from "./MealItemForm";
 import classes from "./MealItem.module.scss";
-import AuthContext from "../../../auth-context/auth-context";
+import CartContext from "../../../cart-context/cart-context";
 import { useContext } from "react";
 
 const MealItem = (props) => {
-  const cartCtx = useContext(AuthContext);
+  const cartCtx = useContext(CartContext);
   // destructurez proprietatile pt a-mi fi mai usor
   const { id, name, description, price } = props.meal;
 

@@ -6,3 +6,16 @@
   margin: 2rem auto;
   animation: meals-appear 1s ease-out forwards;
 }
+
+.loading,
+.error {
+  margin: 4rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.error {
+  color: red;
+}

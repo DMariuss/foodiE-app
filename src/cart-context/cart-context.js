@@ -6,11 +6,12 @@ import React, { useReducer, useEffect } from "react";
 
 //Puteam imparti aceasta logica in doua 🢣 un fisier in care sa am crearea contextului
 //                                      🢣 un fisier in care sa am componenta provider
-const AuthContext = React.createContext({
+const CartContext = React.createContext({
   items: [],
   totalAmount: 0,
   addItem: (item) => {},
   removeItem: (id) => {},
+  clearCart: () => {},
 });
 
 // 🢣 valorile implicite ale proprietatilor starii din reduce
@@ -101,13 +102,16 @@ const reducerFn = (state, action) => {
       // reintorc noua stare din reducer
       return { items: savedList, totalAmount: savedAmount };
 
+    case "CLEAR":
+      return defaultValues;
+
     default:
       return defaultValues;
   }
 };
 
 // Componenta ce va infasura componentele in care voi folosi contextul
-export const AuthContextProvider = (props) => {
+export const CartContextProvider = (props) => {
   // 🢣 folosesc reducer pt a retine starea
   const [cartState, dispatchCartAction] = useReducer(reducerFn, defaultValues);
 
@@ -119,6 +123,9 @@ export const AuthContextProvider = (props) => {
   const removeItemFromCartHandler = (id) => {
     dispatchCartAction({ type: "REMOVE", payload: id }); // sau: ,id: id
   };
+  const clearCartHandler = () => {
+    dispatchCartAction({ type: "CLEAR" });
+  };
 
   //🢣 declarat separat, contine tot ceea ce voi trimite in context pt a fi accesat din alte componente
   const cartContext = {
@@ -127,6 +134,7 @@ export const AuthContextProvider = (props) => {
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
+    clearCart: clearCartHandler,
   };
 
   //**************************************************************** Salvarea starii cosului de cumparaturi */
@@ -159,10 +167,10 @@ export const AuthContextProvider = (props) => {
   //**************************************************************** */
 
   return (
-    <AuthContext.Provider value={cartContext}>
+    <CartContext.Provider value={cartContext}>
       {props.children}
-    </AuthContext.Provider>
+    </CartContext.Provider>
   );
 };
 
-export default AuthContext;
+export default CartContext;

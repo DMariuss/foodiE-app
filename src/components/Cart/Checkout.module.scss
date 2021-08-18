@@ -1,0 +1,79 @@
+@import "../UI_General/config";
+
+.form {
+  margin: 1rem 0;
+  max-height: 20vh;
+  overflow: auto;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+
+  @include media-md {
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+}
+
+.control {
+  margin-bottom: 0.5rem;
+
+  @include media-md {
+    width: 18rem;
+  }
+
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+  }
+
+  input {
+    font: inherit;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+
+  button {
+    font: inherit;
+    font-weight: bold;
+    outline: none;
+    padding: 0.2rem 1.2rem;
+    border-radius: 5rem;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    background-color: set_color(cart_order_btn_bg);
+    color: set_color(cart_order_btn_txt);
+    border: 2px solid set_color(cart_order_btn_bg);
+
+    &:hover,
+    &:focus {
+      background-color: set_color(cart_order_btn_hover_bg);
+    }
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      &:hover,
+      &:focus {
+        background-color: set_color(cart_order_btn_bg);
+      }
+    }
+  }
+}
+
+.invalid label {
+  color: #ca3e51;
+}
+
+.invalid input {
+  border-color: #aa0b20;
+  background-color: #ffeff1;
+}

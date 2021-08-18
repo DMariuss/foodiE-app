@@ -14,4 +14,6 @@ const Meals = () => {
   );
 };
 
+// folosind React.memo() aici nu mai este nevoie sa o folosesc in componentele copil 🢣 pt ca se opreste reevaluarea aici(nu am stari, props
+// sau context folosite in acelea)
 export default React.memo(Meals);

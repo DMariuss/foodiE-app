@@ -1,11 +1,11 @@
 import CartIcon from "../Cart/CartIcon";
 import DropdownCart from "../Cart/DropdownCart";
 import classes from "./HeaderCartButton.module.scss";
-import AuthContext from "../../auth-context/auth-context";
+import CartContext from "../../cart-context/cart-context";
 import { useContext, useEffect, useState } from "react";
 
 const CartButton = (props) => {
-  const cartCtx = useContext(AuthContext);
+  const cartCtx = useContext(CartContext);
   //am nevoie de o variabila de stare pt adaugarea/inlaturarea clasei 'bump' pt efect: altfel nu se actualizeaza clasa butonului
   const [activateBumpEffect, setActiveBumpEffect] = useState(false); // 🢣 pt a reevalua si reranda clasele butonului
   //stare pt reevaluarea codului si rerandarea componentei de hover

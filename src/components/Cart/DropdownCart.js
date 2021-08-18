@@ -1,6 +1,6 @@
 import classes from "./DropdownCart.module.scss";
 import Card from "../UI_General/Card";
-import AuthContext from "../../auth-context/auth-context";
+import CartContext from "../../cart-context/cart-context";
 import { useContext, useMemo } from "react";
 
 //implementez direct aici componenta ce-o voi folosi mai jos
@@ -23,7 +23,7 @@ const DropdownCartItem = (props) => {
 };
 
 const HoverCart = (props) => {
-  const cartCtx = useContext(AuthContext);
+  const cartCtx = useContext(CartContext);
   const { items, totalAmount } = cartCtx;
 
   //variabila in care pun toate elementele cu articolele

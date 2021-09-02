@@ -26,12 +26,23 @@
   z-index: 10;
   display: flex;
   flex-direction: column;
+  transition: all 0.2s ease-in-out;
 
   @include media-md {
     position: fixed;
     flex-direction: row;
     align-items: flex-start;
     padding: 0.5rem;
+
+    &.navbar__alt {
+      background-color: set_color(navbar__alt);
+      height: 60px;
+
+      h1 {
+        font-size: 1.3rem;
+        margin-top: 0;
+      }
+    }
   }
 }
 

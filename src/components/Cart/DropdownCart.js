@@ -1,7 +1,7 @@
 import classes from "./DropdownCart.module.scss";
 import Card from "../UI_General/Card";
 import CartContext from "../../cart-context/cart-context";
-import { useContext, useMemo } from "react";
+import { useContext } from "react";
 
 //implementez direct aici componenta ce-o voi folosi mai jos
 const DropdownCartItem = (props) => {

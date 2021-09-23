@@ -18,6 +18,7 @@ const MealsAvailability = (props) => {
 
   // **** modificare useHttp hook ****
   const { isLoading, error, sendRequest: fetchMeals } = useHttp();
+
   useEffect(() => {
     // const fetchMeals = async () => {
     //   const response = await fetch(
@@ -57,9 +58,11 @@ const MealsAvailability = (props) => {
     // *********************************************** modificare 🢣 implementare fetch-hook
     const addFetchedMeals = (data) => {
       const loadedMeals = [];
+
       for (let key in data) {
         loadedMeals.push({ id: key, ...data[key] });
       }
+
       //actualizez starea cu lista preluata
       setFetchedMeals(loadedMeals);
     };
@@ -88,13 +91,17 @@ const MealsAvailability = (props) => {
     );
   }
 
-  const meals = (
-    <ul>
-      {fetchedMeals.map((meal) => (
-        <MealItem key={meal.id} meal={meal} />
-      ))}
-    </ul>
-  );
+  // conditie pt cazul in care nu primesc date de la Firebase db
+  const meals =
+    fetchedMeals.length !== 0 ? (
+      <ul>
+        {fetchedMeals.map((meal) => (
+          <MealItem key={meal.id} meal={meal} />
+        ))}
+      </ul>
+    ) : (
+      <p className={classes["no-meals"]}>No meals found!</p>
+    );
 
   return (
     <section>

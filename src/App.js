@@ -3,6 +3,9 @@ import Meals from "./components/Meals/Meals";
 import Cart from "./components/Cart/Cart";
 import { CartContextProvider } from "./cart-context/cart-context";
 
+// import componentele pt React Router
+import { Route, Switch, Redirect } from "react-router-dom";
+
 import { useState } from "react";
 
 function App() {
@@ -20,8 +23,29 @@ function App() {
       {/* o pot pune oriunde aici ⇨ React.createPortal */}
       <Header onShowCart={showCartHandler} />
       <main>
-        <Meals />
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+
+          <Route path="/about">
+            <About />
+          </Route>
+
+          <Route path="/delivery" exact>
+            <Meals />
+          </Route>
+
+          <Route path="/contact" exact>
+            <Contact />
+          </Route>
+
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </Switch>
       </main>
+      <Footer />
     </CartContextProvider>
   );
 }

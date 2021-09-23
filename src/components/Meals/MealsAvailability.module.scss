@@ -7,6 +7,12 @@
   animation: meals-appear 1s ease-out forwards;
 }
 
+.no-meals {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
 .loading,
 .error {
   margin: 4rem;

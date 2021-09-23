@@ -13,14 +13,16 @@ const useHttp = () => {
         headers: configRequest.headers ? configRequest.headers : {},
         body: configRequest.body ? configRequest.body : null,
       });
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-      }
+
       const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Something went wrong!");
+      }
 
       shapeData(data);
     } catch (error) {
-      setError(`Sending post request error: ${error.message}`);
+      setError(`Request error: ${error.message}`);
     }
     setIsLoading(false);
   }, []);

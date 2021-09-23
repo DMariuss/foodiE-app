@@ -19,3 +19,18 @@ html {
 body {
   background-color: #3f3f3f;
 }
+
+.centered {
+  margin: 3rem auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-page-found {
+  color: rgb(5, 126, 51);
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-align: center;
+}

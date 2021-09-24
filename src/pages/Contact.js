@@ -1,5 +1,5 @@
 const Contact = (props) => {
-  return;
+  return <p>In Contact</p>;
 };
 
 export default Contact;

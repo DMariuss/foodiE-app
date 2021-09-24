@@ -1,5 +1,10 @@
 import Header from "./components/Layout/Header";
-import Meals from "./components/Meals/Meals";
+import Footer from "./components/Layout/Footer";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Delivery from "./pages/Delivery";
+import NotFound from "./pages/NotFound";
 import Cart from "./components/Cart/Cart";
 import { CartContextProvider } from "./cart-context/cart-context";
 
@@ -19,12 +24,15 @@ function App() {
 
   return (
     <CartContextProvider>
-      {cartIsShown && <Cart onHideCart={hideCartHandler} />}{" "}
       {/* o pot pune oriunde aici ⇨ React.createPortal */}
       <Header onShowCart={showCartHandler} />
+
       <main>
         <Switch>
           <Route path="/" exact>
+            <Redirect to="/home" />
+          </Route>
+          <Route path="/home" exact>
             <Home />
           </Route>
 
@@ -33,7 +41,7 @@ function App() {
           </Route>
 
           <Route path="/delivery" exact>
-            <Meals />
+            <Delivery />
           </Route>
 
           <Route path="/contact" exact>
@@ -44,7 +52,11 @@ function App() {
             <NotFound />
           </Route>
         </Switch>
+        <Route path="/delivery/order">
+          {cartIsShown && <Cart onHideCart={hideCartHandler} />}
+        </Route>
       </main>
+
       <Footer />
     </CartContextProvider>
   );

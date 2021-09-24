@@ -1,5 +1,6 @@
 import classes from "./Navigation.module.scss";
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
   console.log("In Navigation");
@@ -7,19 +8,40 @@ const Navigation = () => {
   return (
     <ul className={classes.navbar__links}>
       <li>
-        <a href="#!" className={classes.navbar__link}>
-          TEST
-        </a>
+        <NavLink
+          to="/home"
+          activeClassName={classes.active}
+          className={classes.navbar__link}
+        >
+          HOME
+        </NavLink>
       </li>
       <li>
-        <a href="#!" className={classes.navbar__link}>
-          NOT
-        </a>
+        <NavLink
+          to="/about"
+          activeClassName={classes.active}
+          className={classes.navbar__link}
+        >
+          ABOUT
+        </NavLink>
       </li>
       <li>
-        <a href="#!" className={classes.navbar__link}>
-          HING
-        </a>
+        <NavLink
+          to="/delivery"
+          activeClassName={classes.active}
+          className={classes.navbar__link}
+        >
+          DELIVERY
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/contact"
+          activeClassName={classes.active}
+          className={classes.navbar__link}
+        >
+          CONTACT
+        </NavLink>
       </li>
     </ul>
   );

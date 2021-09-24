@@ -1,7 +1,7 @@
-// import
+import Meals from "../components/Meals/Meals";
 
 const Delivery = (props) => {
-  return;
+  return <Meals />;
 };
 
 export default Delivery;

@@ -4,6 +4,8 @@ import classes from "./HeaderCartButton.module.scss";
 import CartContext from "../../cart-context/cart-context";
 import { useContext, useEffect, useState } from "react";
 
+import { Link } from "react-router-dom";
+
 const CartButton = (props) => {
   const cartCtx = useContext(CartContext);
   //am nevoie de o variabila de stare pt adaugarea/inlaturarea clasei 'bump' pt efect: altfel nu se actualizeaza clasa butonului
@@ -51,9 +53,9 @@ const CartButton = (props) => {
 
   return (
     <>
-      <button
+      <Link
+        to="/delivery/order"
         className={btnClasses}
-        onClick={props.onClick}
         onMouseEnter={onHoverInHandler}
         onMouseLeave={onHoverOutHandler}
       >
@@ -63,7 +65,7 @@ const CartButton = (props) => {
         <span className={classes["cart-text"]}>Meals Cart</span>
         <span className={classes["cart-badge"]}>{totalItems}</span>
         {showHoverCart && <DropdownCart />}
-      </button>
+      </Link>
     </>
   );
 };

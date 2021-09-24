@@ -70,7 +70,7 @@ const Cart = (props) => {
 
   const actionButtons = (
     <div className={classes.actions}>
-      <button className={classes["button__alt"]} onClick={props.onHideCart}>
+      <button className={classes["button__alt"]} onClick={props.onCloseCart}>
         Close
       </button>
       {showOrder && (
@@ -92,7 +92,7 @@ const Cart = (props) => {
       </div>
       {isCheckout && (
         <Checkout
-          onCloseCart={props.onHideCart}
+          onCloseCart={props.onCloseCart}
           sentData={SubmitOrderHandler}
         />
       )}
@@ -109,7 +109,7 @@ const Cart = (props) => {
     modalContent = (
       <div className={classes.actions}>
         <p className={classes.error}>{sendError}</p>
-        <button className={classes.button} onClick={props.onHideCart}>
+        <button className={classes.button} onClick={props.onCloseCart}>
           Close
         </button>
       </div>
@@ -120,14 +120,14 @@ const Cart = (props) => {
     modalContent = (
       <div className={classes.actions}>
         <p className={classes.sending}>Successfully sent the order!</p>
-        <button className={classes.button} onClick={props.onHideCart}>
+        <button className={classes.button} onClick={props.onCloseCart}>
           Close
         </button>
       </div>
     );
   }
 
-  return <Modal onClick={props.onHideCart}>{modalContent}</Modal>;
+  return <Modal onClick={props.onCloseCart}>{modalContent}</Modal>;
 };
 
 export default Cart;

@@ -22,7 +22,7 @@ body {
 }
 
 .centered {
-  margin: 3rem auto;
+  margin: 5rem auto;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -30,8 +30,9 @@ body {
 }
 
 .no-page-found {
+  height: 30vh;
   color: rgb(5, 126, 51);
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 2rem;
   text-align: center;
 }

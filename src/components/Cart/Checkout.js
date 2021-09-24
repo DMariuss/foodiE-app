@@ -20,11 +20,11 @@ const Checkout = (props) => {
     inputBlurHandler: streetInputBlurHandler,
   } = useInput(isNotEmpty);
   const {
-    value: postalCode,
-    isValid: postalCodeIsValid,
-    hasError: postalCodeHasError,
-    inputChangeHandler: postalCodeInputChangeHandler,
-    inputBlurHandler: postalCodeInputBlurHandler,
+    value: phone,
+    isValid: phoneIsValid,
+    hasError: phoneHasError,
+    inputChangeHandler: phoneInputChangeHandler,
+    inputBlurHandler: phoneInputBlurHandler,
   } = useInput(isFiveChars);
   const {
     value: city,
@@ -35,7 +35,7 @@ const Checkout = (props) => {
   } = useInput(isNotEmpty);
 
   let formIsValid = false;
-  if (nameIsValid && streetIsValid && postalCodeIsValid && cityIsValid) {
+  if (nameIsValid && streetIsValid && phoneIsValid && cityIsValid) {
     formIsValid = true;
   }
 
@@ -46,7 +46,7 @@ const Checkout = (props) => {
       return;
     }
 
-    const userOrderDetails = { name, street, city, postalCode };
+    const userOrderDetails = { name, street, city, phone };
     props.sentData(userOrderDetails);
   };
 
@@ -56,7 +56,7 @@ const Checkout = (props) => {
   const streetClasses = streetHasError
     ? `${classes.control} ${classes.invalid}`
     : `${classes.control}`;
-  const postalClasses = postalCodeHasError
+  const postalClasses = phoneHasError
     ? `${classes.control} ${classes.invalid}`
     : `${classes.control}`;
   const cityClasses = cityHasError
@@ -89,15 +89,15 @@ const Checkout = (props) => {
           {streetHasError && <p>Please enter a valid street!</p>}
         </div>
         <div className={postalClasses}>
-          <label htmlFor="postal">Postal code</label>
+          <label htmlFor="phone">Phone number</label>
           <input
-            type="text"
-            id="postal"
-            onChange={postalCodeInputChangeHandler}
-            onBlur={postalCodeInputBlurHandler}
-            value={postalCode}
+            type="number"
+            id="phone"
+            onChange={phoneInputChangeHandler}
+            onBlur={phoneInputBlurHandler}
+            value={phone}
           />
-          {postalCodeHasError && <p>Please enter a valid postal code >=5 !</p>}
+          {phoneHasError && <p>Please enter a valid number!</p>}
         </div>
         <div className={cityClasses}>
           <label htmlFor="city">City</label>

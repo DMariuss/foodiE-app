@@ -10,6 +10,10 @@
   perspective: 950px;
   margin: 0 0.7rem;
 
+  &:first-child {
+    color: white;
+  }
+
   &::after {
     @include pseudo-effect;
     left: -12px;

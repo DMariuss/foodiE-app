@@ -1,6 +1,8 @@
+import AboutContent from "../components/About/AboutContent";
+
 const About = (props) => {
   // aici as putea adauga ceva text despre + galeria cu poze
-  return <p>About US</p>;
+  return <AboutContent />;
 };
 
 export default About;

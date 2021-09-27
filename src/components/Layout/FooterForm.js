@@ -1,4 +1,4 @@
-import useInput from "../../hooks/input-hook";
+// import useInput from "../../hooks/input-hook";
 import classes from "./FooterForm.module.scss";
 
 const FooterForm = () => {

@@ -1,0 +1,14 @@
+@import "../UI_General/config";
+
+.about {
+  margin: 3rem auto 10rem;
+  height: 50vh;
+  text-align: center;
+
+  h3 {
+    color: set_color(green_l);
+  }
+  p {
+    margin: 2rem;
+  }
+}

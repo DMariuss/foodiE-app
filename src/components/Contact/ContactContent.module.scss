@@ -1,0 +1,74 @@
+@import "../UI_General/config";
+
+.contact {
+  //   background-color: yellow;
+  padding: 0.1px;
+  color: set_color(contact_us_text_color);
+
+  .talk {
+    font-style: italic;
+    font-size: 1.3rem;
+  }
+
+  h3 {
+    color: set_color(contact_us_header_color);
+    margin: 1.5rem 0.5rem 0.5rem;
+    text-align: center;
+  }
+
+  &__container {
+    margin: 2rem 0;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+
+    @include media-md {
+      flex-direction: row;
+      justify-content: space-around;
+
+      margin-top: 7rem;
+    }
+  }
+
+  &__information {
+    text-align: center;
+
+    p {
+      margin: 1rem 0;
+    }
+
+    i {
+      margin-right: 0.3rem;
+    }
+  }
+
+  &__form {
+    h3 {
+      @include media-md {
+        text-align: left;
+      }
+    }
+  }
+
+  &__map {
+    width: Min(100%, 55rem);
+    height: 250px;
+    margin: 2rem auto 0rem;
+
+    @include media-md {
+      margin: 4rem auto 2rem;
+      height: 300px;
+    }
+
+    h3 {
+      margin-bottom: 1rem;
+
+      @include media-md {
+        text-align: left;
+        width: fit-content;
+        margin-left: 2rem;
+        margin-top: -7.5rem;
+      }
+    }
+  }
+}

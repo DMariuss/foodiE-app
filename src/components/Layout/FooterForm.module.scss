@@ -1,0 +1,43 @@
+@import "../UI_General/config";
+
+.form {
+  position: relative;
+  width: 90%;
+  margin: 0.5rem auto 0;
+
+  @include media-sm {
+    width: 60%;
+  }
+  @include media-md {
+    width: 100%;
+  }
+  input {
+    padding: 0.7rem;
+    padding-right: 2.3rem;
+    width: 100%;
+    border-radius: 3rem;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: set_color(green_l);
+    border-radius: 3rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: none;
+    padding: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    i {
+      font-size: 1.2rem;
+      color: white;
+    }
+  }
+}

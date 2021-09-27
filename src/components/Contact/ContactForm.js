@@ -1,10 +1,11 @@
-import classes from "./Checkout.module.scss";
+import classes from "./ContactForm.module.scss";
 import useInput from "../../hooks/input-hook";
 
 const isNotEmpty = (value) => value.trim() !== "";
+// ===> de adaugat extra functie pt a verifica special pt email (daca este sau nu gol/email)
 const isFiveChars = (value) => value.trim().length >= 5;
 
-const Checkout = (props) => {
+const ContactForm = (props) => {
   const {
     value: name,
     isValid: nameIsValid,
@@ -13,11 +14,11 @@ const Checkout = (props) => {
     inputBlurHandler: nameInputBlurHandler,
   } = useInput(isNotEmpty);
   const {
-    value: street,
-    isValid: streetIsValid,
-    hasError: streetHasError,
-    inputChangeHandler: streetInputChangeHandler,
-    inputBlurHandler: streetInputBlurHandler,
+    value: email,
+    isValid: emailIsValid,
+    hasError: emailHasError,
+    inputChangeHandler: emailInputChangeHandler,
+    inputBlurHandler: emailInputBlurHandler,
   } = useInput(isNotEmpty);
   const {
     value: phone,
@@ -27,15 +28,15 @@ const Checkout = (props) => {
     inputBlurHandler: phoneInputBlurHandler,
   } = useInput(isFiveChars);
   const {
-    value: city,
-    isValid: cityIsValid,
-    hasError: cityHasError,
-    inputChangeHandler: cityInputChangeHandler,
-    inputBlurHandler: cityInputBlurHandler,
+    value: message,
+    isValid: messageIsValid,
+    hasError: messageHasError,
+    inputChangeHandler: messageInputChangeHandler,
+    inputBlurHandler: messageInputBlurHandler,
   } = useInput(isNotEmpty);
 
   let formIsValid = false;
-  if (nameIsValid && streetIsValid && phoneIsValid && cityIsValid) {
+  if (nameIsValid && emailIsValid && phoneIsValid && messageIsValid) {
     formIsValid = true;
   }
 
@@ -46,20 +47,20 @@ const Checkout = (props) => {
       return;
     }
 
-    const userOrderDetails = { name, street, city, phone };
+    const userOrderDetails = { name, email, message, phone };
     props.sentData(userOrderDetails);
   };
 
   const nameClasses = nameHasError
     ? `${classes.control} ${classes.invalid}`
     : `${classes.control}`;
-  const streetClasses = streetHasError
+  const emailClasses = emailHasError
     ? `${classes.control} ${classes.invalid}`
     : `${classes.control}`;
   const phoneClasses = phoneHasError
     ? `${classes.control} ${classes.invalid}`
     : `${classes.control}`;
-  const cityClasses = cityHasError
+  const messageClasses = messageHasError
     ? `${classes.control} ${classes.invalid}`
     : `${classes.control}`;
 
@@ -67,58 +68,56 @@ const Checkout = (props) => {
     <form onSubmit={onSubmitHandler} className={classes.form}>
       <div className={classes.controls}>
         <div className={nameClasses}>
-          <label htmlFor="name">Your name</label>
           <input
             type="text"
-            id="name"
+            id="contact_name"
+            placeholder="Name"
             onChange={nameInputChangeHandler}
             onBlur={nameInputBlurHandler}
             value={name}
           />
           {nameHasError && <p>Please enter a valid name!</p>}
         </div>
-        <div className={streetClasses}>
-          <label htmlFor="street">Street</label>
+        <div className={emailClasses}>
           <input
-            type="text"
-            id="street"
-            onChange={streetInputChangeHandler}
-            onBlur={streetInputBlurHandler}
-            value={street}
+            type="email"
+            id="contact_email"
+            placeholder="Email"
+            onChange={emailInputChangeHandler}
+            onBlur={emailInputBlurHandler}
+            value={email}
           />
-          {streetHasError && <p>Please enter a valid street!</p>}
+          {emailHasError && <p>Please enter a valid email!</p>}
         </div>
         <div className={phoneClasses}>
-          <label htmlFor="phone">Phone number</label>
           <input
             type="number"
-            id="phone"
+            id="contact_phone"
+            placeholder="Mobile phone"
             onChange={phoneInputChangeHandler}
             onBlur={phoneInputBlurHandler}
             value={phone}
           />
           {phoneHasError && <p>Please enter a valid number!</p>}
         </div>
-        <div className={cityClasses}>
-          <label htmlFor="city">City</label>
-          <input
+        <div className={messageClasses}>
+          <textarea
             type="text"
-            id="city"
-            onChange={cityInputChangeHandler}
-            onBlur={cityInputBlurHandler}
-            value={city}
+            rows="8"
+            id="contact_message"
+            placeholder="Message"
+            onChange={messageInputChangeHandler}
+            onBlur={messageInputBlurHandler}
+            value={message}
           />
-          {cityHasError && <p>Please enter a valid city!</p>}
+          {messageHasError && <p>Please enter a valid message!</p>}
         </div>
       </div>
       <div className={classes.actions}>
-        <button type="button" onClick={props.onCloseCart}>
-          Cancel
-        </button>
-        <button disabled={!formIsValid}>Confirm</button>
+        <button>SEND MESSAGE</button>
       </div>
     </form>
   );
 };
 
-export default Checkout;
+export default ContactForm;

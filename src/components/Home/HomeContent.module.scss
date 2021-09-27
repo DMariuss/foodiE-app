@@ -1,0 +1,147 @@
+@import "../UI_General/config";
+
+.logo {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: set_color(home_subtitle_logo_color);
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  position: relative;
+  perspective: 950px;
+  margin: 0 0.7rem;
+
+  &::after {
+    @include pseudo-effect;
+    left: -12px;
+    bottom: 4px;
+    width: 64%;
+    height: 0.13em;
+    background-color: set_color(logo_deco);
+  }
+
+  &__E {
+    display: inline-block;
+    font-family: "Lobster Two";
+    font-size: 1.8em;
+    transform: rotate(-30deg) rotateY(-16deg);
+    color: set_color(logo_deco);
+  }
+}
+
+.menu_link,
+.find_more_link {
+  background-color: set_color(meal_add_btn_bg);
+  color: set_color(meal_add_btn_txt);
+  border: 1px solid set_color(meal_add_btn_bg);
+  display: inline-block;
+  font: inherit;
+  font-weight: bold;
+  outline: none;
+  padding: 0.3rem 4rem;
+  margin: 0.6rem 0;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+
+  &:hover,
+  &:focus {
+    background-color: set_color(meal_hover_add_btn_bg);
+  }
+}
+
+.find_more_link {
+  background-color: transparent;
+  color: set_color(green_d);
+
+  &:hover,
+  &:focus {
+    background-color: set_color(green_d);
+    color: white;
+  }
+}
+
+.home {
+  padding: 0.1px;
+
+  .nutrition,
+  .food_subscription {
+    width: Min(100%, 1200px);
+    padding: 0.1px;
+    margin: 0 auto;
+
+    &__content {
+      text-align: center;
+      color: set_color(home_text_color);
+
+      p {
+        margin: 1rem;
+      }
+    }
+
+    .nutrition__content {
+      display: flow-root;
+      overflow: auto;
+
+      img {
+        @include media-md {
+          float: left;
+          shape-outside: circle(50%);
+          width: Min(50%, 550px);
+        }
+      }
+      > div {
+        @include media-md {
+          margin-top: Clamp(1rem, 4.5vw, 5.5rem);
+        }
+      }
+      p {
+        max-width: 90%;
+        margin: 0 auto;
+        @include media-md {
+          margin-bottom: 3.5rem;
+        }
+      }
+    }
+
+    .food_subscription__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @include media-md {
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-bottom: 4rem;
+      }
+
+      img {
+        @include media-md {
+          order: 2;
+          width: Min(60%, 450px);
+        }
+      }
+
+      p {
+        max-width: 30ch;
+      }
+    }
+
+    h2 {
+      text-align: center;
+      color: set_color(home_header_color);
+      margin: 2rem;
+
+      @include media-md {
+        margin: 5rem 0 3rem;
+      }
+    }
+
+    img {
+      width: Min(100%, 500px);
+    }
+  }
+
+  .food_subscription {
+    margin-top: 2rem;
+  }
+}

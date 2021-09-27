@@ -30,8 +30,7 @@
     padding: 0.5rem;
     transition: all 0.1s ease-in-out;
 
-    &:hover,
-    &:focus {
+    &:hover {
       background-color: set_color(header_hover_bg);
     }
   }

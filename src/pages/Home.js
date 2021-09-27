@@ -1,5 +1,7 @@
+import HomeContent from "../components/Home/HomeContent";
+
 const Home = (props) => {
-  return <p>Welcome Home</p>;
+  return <HomeContent />;
 };
 
 export default Home;

@@ -1,0 +1,64 @@
+@import "../UI_General/config";
+
+.footer {
+  padding: 0.1px;
+  margin-top: 4rem;
+
+  &__block {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    > * {
+      padding: 0.5rem 1rem;
+    }
+
+    @include media-md {
+      flex-direction: row;
+      text-align: left;
+    }
+  }
+
+  &__contacts {
+    p {
+      margin: 0.3rem;
+      color: set_color(footer_text_color);
+    }
+    i {
+      margin-right: 0.7rem;
+    }
+  }
+  &__socials {
+    &__icons {
+      display: flex;
+      justify-content: space-evenly;
+      i {
+        font-size: 1.8rem;
+        color: set_color(footer_socials_icons);
+        margin-top: 0.5rem;
+      }
+    }
+  }
+  &__navmap {
+    a {
+      color: set_color(footer_text_color);
+    }
+  }
+
+  > p {
+    text-align: center;
+    margin: 2rem 0;
+    font-weight: bold;
+    color: set_color(footer_text_color);
+  }
+
+  h4 {
+    text-transform: uppercase;
+    color: set_color(footer_header_color);
+    margin: 1rem 0 0.2rem;
+    @include media-md {
+      margin-bottom: 1rem;
+    }
+  }
+}

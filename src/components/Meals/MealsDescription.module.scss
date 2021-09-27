@@ -1,26 +1,4 @@
 @import "../UI_General/config";
 
 .description {
-  background-color: set_color(meal_description_bg);
-  color: set_color(meal_description_txt);
-  width: Min(90%, 40rem);
-  margin: 0 auto;
-  margin-top: -2.4rem;
-  position: relative;
-  text-align: center;
-
-  @include media-md {
-    margin-top: -13rem;
-  }
-
-  h2 {
-    color: set_color(meal_description_h2_txt);
-    margin-bottom: 0.6rem;
-    font-size: Clamp(1.6rem, 2.6vw, 2.1rem);
-  }
-
-  p {
-    max-width: 32ch;
-    margin: 0.5rem auto;
-  }
 }

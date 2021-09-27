@@ -30,6 +30,17 @@ $colors: (
   cart_close_btn_hover_bg: #28a745,
   cart_add_remove_btn_bg: white,
   cart_add_remove_btn_txt: #036518,
+  // footer
+  footer_text_color: rgba(0, 0, 0, 0.75),
+  footer_header_color: #28a745,
+  footer_socials_icons: #000,
+  // contact us
+  contact_us_header_color: #28a745,
+  contact_us_text_color: rgb(0, 0, 0),
+  // home
+  home_header_color: #28a745,
+  home_subtitle_logo_color: rgba(0, 0, 0, 0.75),
+  home_text_color: rgba(0, 0, 0, 0.7),
 );
 
 @function set_color($key) {

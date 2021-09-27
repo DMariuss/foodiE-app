@@ -1,12 +1,12 @@
-import Card from "../UI_General/Card";
-import classes from "./MealsDescription.module.scss";
+import CardComplex from "../UI_General/CardComplex";
+// import classes from "./MealsDescription.module.scss";
 
 const MealsDescription = () => {
   console.log("In Meals Description");
 
   return (
     <section>
-      <Card className={classes.description}>
+      <CardComplex>
         <h2>Delicious Food, Delivered To You</h2>
         <p>
           Choose your favorite meal from our broad selection of available meals
@@ -16,7 +16,7 @@ const MealsDescription = () => {
           All our meals are cooked with high-quality ingredients, just-in-time
           and of course by experienced chefs!
         </p>
-      </Card>
+      </CardComplex>
     </section>
   );
 };

@@ -2,8 +2,13 @@ import classes from "./ContactForm.module.scss";
 import useInput from "../../hooks/input-hook";
 
 const isNotEmpty = (value) => value.trim() !== "";
-// ===> de adaugat extra functie pt a verifica special pt email (daca este sau nu gol/email)
 const isFiveChars = (value) => value.trim().length >= 5;
+// special pt verificarea emailului
+const isValidEmail = (value) =>
+  // eslint-disable-next-line
+  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+    value
+  );
 
 const ContactForm = (props) => {
   const {
@@ -12,6 +17,7 @@ const ContactForm = (props) => {
     hasError: nameHasError,
     inputChangeHandler: nameInputChangeHandler,
     inputBlurHandler: nameInputBlurHandler,
+    reset: nameReset,
   } = useInput(isNotEmpty);
   const {
     value: email,
@@ -19,13 +25,15 @@ const ContactForm = (props) => {
     hasError: emailHasError,
     inputChangeHandler: emailInputChangeHandler,
     inputBlurHandler: emailInputBlurHandler,
-  } = useInput(isNotEmpty);
+    reset: emailReset,
+  } = useInput(isValidEmail);
   const {
     value: phone,
     isValid: phoneIsValid,
     hasError: phoneHasError,
     inputChangeHandler: phoneInputChangeHandler,
     inputBlurHandler: phoneInputBlurHandler,
+    reset: phoneReset,
   } = useInput(isFiveChars);
   const {
     value: message,
@@ -33,12 +41,20 @@ const ContactForm = (props) => {
     hasError: messageHasError,
     inputChangeHandler: messageInputChangeHandler,
     inputBlurHandler: messageInputBlurHandler,
+    reset: messageReset,
   } = useInput(isNotEmpty);
 
   let formIsValid = false;
   if (nameIsValid && emailIsValid && phoneIsValid && messageIsValid) {
     formIsValid = true;
   }
+
+  const resetInputs = () => {
+    nameReset();
+    emailReset();
+    phoneReset();
+    messageReset();
+  };
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
@@ -47,8 +63,11 @@ const ContactForm = (props) => {
       return;
     }
 
-    const userOrderDetails = { name, email, message, phone };
-    props.sentData(userOrderDetails);
+    const contactDetails = { name, email, message, phone };
+    console.log("contact details ->", contactDetails);
+    // props.sentData(contactDetails);
+
+    resetInputs();
   };
 
   const nameClasses = nameHasError

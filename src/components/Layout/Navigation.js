@@ -22,7 +22,7 @@ const Navigation = () => {
           activeClassName={classes.active}
           className={classes.navbar__link}
         >
-          ABOUT
+          ABOUT US
         </NavLink>
       </li>
       <li>

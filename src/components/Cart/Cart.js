@@ -84,7 +84,6 @@ const Cart = (props) => {
   //am creat o variabila in care am continutul modalului pt a-l manipula
   let modalContent = (
     <>
-      {" "}
       <ul className={classes["cart-items"]}>{cartItems}</ul>
       <div className={classes.total}>
         <span>Total Amout</span>

@@ -5,7 +5,6 @@ import { useContext } from "react";
 
 const MealItem = (props) => {
   const cartCtx = useContext(CartContext);
-  // destructurez proprietatile pt a-mi fi mai usor
   const { id, name, description, price } = props.meal;
 
   // ⇨ formatting price
@@ -20,8 +19,6 @@ const MealItem = (props) => {
       amount: amount,
     });
   };
-
-  console.log("In Meal Item");
 
   return (
     <li className={classes.meal}>

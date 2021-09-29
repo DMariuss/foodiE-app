@@ -1,4 +1,4 @@
-import Meals from "../components/Meals/Meals";
+import Meals from "../components/Delivery/Meals";
 import Cart from "../components/Cart/Cart";
 import { Route, Redirect } from "react-router-dom";
 

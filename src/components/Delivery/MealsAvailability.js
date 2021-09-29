@@ -1,6 +1,6 @@
 // import React from "react";
 import Card from "../UI_General/Card";
-import MealItem from "../Meals/MealItem/MealItem";
+import MealItem from "./MealItem/MealItem";
 import classes from "./MealsAvailability.module.scss";
 import { useEffect, useState } from "react";
 import useHttp from "../../hooks/fetch-hook";
@@ -20,7 +20,7 @@ const MealsAvailability = (props) => {
   const { isLoading, error, sendRequest: fetchMeals } = useHttp();
 
   useEffect(() => {
-    // const fetchMeals = async () => {
+    // const fetchMeals = async () => {             ******** modificare 🢣 implementare hook personalizat
     //   const response = await fetch(
     //     "https://react-http-tests-default-rtdb.europe-west1.firebasedatabase.app/meals.json"
     //   );

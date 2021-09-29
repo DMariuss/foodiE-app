@@ -8,6 +8,8 @@ const reducerFN = (state, action) => {
       return { value: action.value, isTouched: state.isTouched };
     case "BLUR":
       return { value: state.value, isTouched: true };
+    case "RESET":
+      return initialState;
     default:
       return initialState;
   }
@@ -27,12 +29,17 @@ const useInput = (validateInput) => {
     dispatch({ type: "BLUR" });
   };
 
+  const reset = () => {
+    dispatch({ type: "RESET" });
+  };
+
   return {
     value: inputState.value,
     isValid,
     hasError,
     inputChangeHandler,
     inputBlurHandler,
+    reset,
   };
 };
 

@@ -3,7 +3,7 @@ import CardComplex from "../UI_General/CardComplex";
 import Map from "./Map";
 import classes from "./ContactContent.module.scss";
 
-const Contact = (props) => {
+const ContactContent = (props) => {
   return (
     <section className={classes.contact}>
       <CardComplex>
@@ -42,4 +42,4 @@ const Contact = (props) => {
   );
 };
 
-export default Contact;
+export default ContactContent;
